@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="modelo.Programador" optimistic-lock="version" polymorphism="implicit" select-before-update="false">
+        <id name="id_Programador" column="idProgramador"> 
+               <generator class="identity"> </generator>
+           </id>
+
+           <property name="nombre" type="string" column="nombre"></property>
+           <property name="apellido" type="string" column="apellido"></property>
+           <property name="direccion" type="string" column="direccion"></property>
+           <property name="telefono" type="string" column="telefono"></property>
+           <property name="salarioBase" type="integer" column="salarioBase"></property>
+  
+  
+            <!--relacion programador uno a muchos -->
+           <set name="tareas" inverse="true" cascade="none">  <!--set, lista desordenada, me trae la lista desordenada-->
+                <key>
+                    <column name="Programador_idProgramador"></column> <!--el name es la columna en la bd del hijo de la relacion-->
+                </key>
+              <one-to-many class="modelo.Tarea"></one-to-many>            
+           </set>
+           
+    </class>
+</hibernate-mapping>

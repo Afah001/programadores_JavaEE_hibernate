@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="modelo.Tarea" optimistic-lock="version" polymorphism="implicit" select-before-update="false">
+        
+        <id name="id_Tarea" column="idTarea"> 
+            <generator class="identity"> </generator>
+        </id>
+        
+        <property name="costo" type="integer" column="costo"></property>
+        <property name="duracion" type="integer" column="duracion"></property>
+        <property name="estado" type="string" column="estado"></property>
+        <property name="fecha" type="date" column="fecha"></property>
+        
+        <!--relacion de programador uno a uno-->
+        <many-to-one name="programador" class="modelo.Programador" column="Programador_idProgramador" cascade="none"></many-to-one>
+      
+        <!--relacion  proyecto uno a uno -->         
+        <many-to-one name="proyecto" class="modelo.Proyecto" column="Proyecto_idProyecto" cascade="none" />
+        
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <servlet>
+        <servlet-name>servlet_Programador</servlet-name>
+        <servlet-class>controlador.servlet_Programador</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>servlet_Tarea</servlet-name>
+        <servlet-class>controlador.servlet_Tarea</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>servlet_Proyecto</servlet-name>
+        <servlet-class>controlador.servlet_Proyecto</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servlet_Programador</servlet-name>
+        <url-pattern>/servlet_Programador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>servlet_Tarea</servlet-name>
+        <url-pattern>/servlet_Tarea</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>servlet_Proyecto</servlet-name>
+        <url-pattern>/servlet_Proyecto</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
